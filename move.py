@@ -1,5 +1,9 @@
 global DoEnding
 
+def set_do_ending(val):
+	global DoEnding
+	DoEnding = val
+
 def moveTo(x, y):
 	# 将玩家移动到坐标 (x, y)
 	while get_pos_x() != x or get_pos_y() != y:
@@ -11,6 +15,7 @@ def moveTo(x, y):
 			move(North)
 		elif get_pos_y() > y:
 			move(South)
+
 
 def moveWithDoing(x, y, doing):
 	# 将玩家移动到坐标 (x, y) 并执行 doing 函数
@@ -24,6 +29,7 @@ def moveWithDoing(x, y, doing):
 		elif get_pos_y() > y:
 			move(South)
 		doing()
+
 
 def moveToNextCol(doing,ending):
 	# 将玩家移动到下一列
@@ -47,3 +53,4 @@ def moveToAllTile(doing,ending):
 		else:
 			moveWithDoing(i, 0, doing)
 			moveToNextCol(doing,ending)
+	
